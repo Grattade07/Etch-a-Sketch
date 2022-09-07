@@ -1,13 +1,27 @@
-const container = document.getElementById("grid-container");
+const container = document.getElementById("gridContainer");
 
-function makeRows(rows, cols) {
-    container.style.setProperty('grid-rows', rows);
-    container.style.setProperty('grid-cols', cols);
-    for (c = 0; c < (rows * cols); c++) {
-        let cell = document.createElement("div");
-        cell.innerText = (c + 1);
-        container.appendChild(cell).className = "grid-item";
+function makeGrid() {
+    makeRows(16);
+    makeCols(16);
+}
+
+let rows = document.getElementsByClassName("gridRow");
+let cols = document.getElementsByClassName("cell");
+
+function makeRows(rowNum) {
+    for (r = 0; r < rowNum; r++) {
+        let row = document.createElement("div");
+        container.appendChild(row).className = "gridRow";
+    };
+}
+
+function makeCols(colsNum) {
+    for (i = 0; i < rows.length; i++) {
+        for (j = 0; j < colsNum; j++) {
+            let newCell = document.createElement("div");
+            rows[j].appendChild(newCell).className = "cell"
+        }
     }
-} 
+}
 
-makeRows(16,16);
+makeGrid();
