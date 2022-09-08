@@ -4,5 +4,10 @@
     min-width: 10px;
     min-height: 20px;
     display: inline-block;
+    justify-content: space-evenly;
     margin-right: 2px;
+}
+
+.cell-hover {
+    background-color: black;
 }
