@@ -39,13 +39,3 @@ for (let i = 0; i < cell.length; i++) {
     })
 }
 
-function hoverAdd() {
-    this.classList.add("cell-hover");
-}
-
-function hoverRemove() {
-    this.classList.remove("cell-hover");
-}
-
-cell.addEventListener("mouseover", hoverAdd);
-//cell.addEventListener("mouseout", hoverRemove);
