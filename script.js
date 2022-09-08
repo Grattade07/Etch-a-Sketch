@@ -1,8 +1,8 @@
 const container = document.getElementById("gridContainer");
 
-function makeGrid() {
-    makeRows(16);
-    makeCols(16);
+function makeGrid(num) {
+    makeRows(num);
+    makeCols(num);
 }
 
 let rows = document.getElementsByClassName("gridRow");
@@ -34,8 +34,16 @@ for (let i = 0; i < cell.length; i++) {
     cell[i].addEventListener("mouseover", () => {
         cell[i].classList.add("cell-hover");
     });
-    cell[i].addEventListener("mouseout", () => {
-        cell[i].classList.remove("cell-hover");
-    })
 }
 
+const btn = document.querySelector(".btn");
+btn.addEventListener("click", () => {
+   let gridSize = window.prompt("What size grid do you want?", 16);
+
+    if (gridSize <= 100) {
+        makeGrid(gridSize);
+    } else if (gridSize > 100) {
+       gridSize = window.prompt("That's too big, please put a number =<100");
+        makeGrid(gridSize);
+    }
+})

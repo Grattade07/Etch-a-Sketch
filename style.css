@@ -8,6 +8,10 @@
     margin-right: 2px;
 }
 
+#gridContainer {
+    width: 960px;
+}
+
 .cell-hover {
     background-color: black;
 }
