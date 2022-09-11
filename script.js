@@ -28,16 +28,19 @@ function makeCols(colsNum) {
 
 makeGrid();
 
-function reset() {
-    document.querySelectorAll(".cell");
-    document.forEach((e) => e.parentNode.removeChild(e));
+function reset(parent) {
+   while (parent.firstChild) {
+    parent.removeChild(parent.firstChild)
+   };
 }
 
 const btn = document.querySelector(".btn");
 btn.addEventListener("click", () => {
-   let gridSize = window.prompt("What size grid do you want?", 16);
+    let gridSize = window.prompt("What size grid do you want?", 16);
+
 
     if (gridSize <= 100) {
+        reset(container);
         makeGrid(gridSize);
         let cell = document.querySelectorAll(".cell");
         for (let i = 0; i < cell.length; i++) {
@@ -46,7 +49,9 @@ btn.addEventListener("click", () => {
     });
 }
     } else if (gridSize > 100) {
+        
        gridSize = window.prompt("That's too big, please put a number =<100");
+       reset(container);
         makeGrid(gridSize);
         let cell = document.querySelectorAll(".cell");
         for (let i = 0; i < cell.length; i++) {
@@ -56,11 +61,3 @@ btn.addEventListener("click", () => {
 }
     }
 });
-
-let cell = document.querySelectorAll(".cell");
-
-for (let i = 0; i < cell.length; i++) {
-    cell[i].addEventListener("mouseover", () => {
-        cell[i].classList.add("cell-hover");
-    });
-}
